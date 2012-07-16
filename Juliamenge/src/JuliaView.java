@@ -7,6 +7,10 @@ public class JuliaView extends JFrame implements Observer {
 	public double TF_reC = 0.0;
 	public double TF_imC = 0.0;
 	
+    JTextField tfImC = new JTextField(3);
+    JTextField tfReC = new JTextField(3);
+
+	
 	private JuliaModel model;
 	private JuliaController controller;
 	
@@ -44,9 +48,9 @@ public class JuliaView extends JFrame implements Observer {
 	    JPanel contentPane = new JPanel();
 
 	             // Button Next mit Controller als Listener
-	    JButton btNext = new JButton( ACTION_Zeichnen);
-	    contentPane.add( btNext);
-	    btNext.addActionListener( controller);
+	    JButton btDraw = new JButton( ACTION_Zeichnen);
+	    contentPane.add( btDraw);
+	    btDraw.addActionListener( controller);
 
 	    
 
@@ -54,10 +58,22 @@ public class JuliaView extends JFrame implements Observer {
 	    JButton btQuit = new JButton( ACTION_Quit);
 	    contentPane.add( btQuit);
 	    btQuit.addActionListener( controller);
-
+	    btDraw.addActionListener( controller);
+	    contentPane.add( tfReC);
+	    contentPane.add(new JLabel(" + "));
+	    contentPane.add( tfImC);
+	    contentPane.add(new JLabel("i"));
+	    
 	    return contentPane;
 	  }
 
+	  double getReC(){
+		  return Double.parseDouble(tfReC.getText()); // TODO Find better way of casting to double
+	  }
+	  
+	  double getImC(){
+		  return Double.parseDouble(tfImC.getText()); // TODO Find better way of casting to double
+	  }
 	
 	  public void release()
 	  {

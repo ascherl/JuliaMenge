@@ -7,21 +7,7 @@ import java.util.Observable;
 public class JuliaModel extends Observable {
 	public double reC;
 	public double imC;
-	public ArrayList<Point> Punkteliste;
-	
-
-	
-
-import java.awt.Point;
-import java.util.ArrayList;
-
-
-
-public class JuliaModel{
-	public static double reC;
-	public static double imC;
-	public static ArrayList<Point> PunkteListe;
-	
+	public ArrayList<Point> PunkteListe;
 	   
 	
 
