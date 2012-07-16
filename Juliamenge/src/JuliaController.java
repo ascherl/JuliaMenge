@@ -27,7 +27,11 @@ public class JuliaController extends WindowAdapter implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 	    String command = ae.getActionCommand();
-
+	    
+	    if( command.equals( JuliaView.ACTION_Zeichnen))
+	    {
+	    	view.paint(model.berechnen(view.getReC(), view.getImC()));
+	    }
 
 	 // Programmabbruch durch Button 'Quit'
 	     if( command.equals( JuliaView.ACTION_Quit))

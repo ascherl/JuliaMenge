@@ -1,3 +1,4 @@
+import java.awt.Point;
 import java.util.*;
 import javax.swing.*;
 
@@ -73,6 +74,11 @@ public class JuliaView extends JFrame implements Observer {
 	  
 	  double getImC(){
 		  return Double.parseDouble(tfImC.getText()); // TODO Find better way of casting to double
+	  }
+	  
+	  void paint(ArrayList<Point> Punkteliste) {
+		  JFrame frame = new JFrame(getImC()+" + "+getImC()+"i");
+		  frame.setVisible(true);
 	  }
 	
 	  public void release()

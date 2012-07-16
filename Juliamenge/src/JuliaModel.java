@@ -28,7 +28,7 @@ public class JuliaModel extends Observable {
 	    }
 
 	   
-		public void berechnen (double reC, double imC){
+		public ArrayList<Point> berechnen (double reC, double imC){
 	    	int x,y;
 	        double imZo=-5,zelle=0.0065;
 	        ;// oberer Rand
@@ -41,16 +41,17 @@ public class JuliaModel extends Observable {
 	                	System.out.println("gogo");
 	                    Point punkt = new Point(x,y);
 	                    //System.out.println("gogo1");
-	                    
-	                    PunkteListe = new ArrayList<Point>();
+
 	                    PunkteListe.add(punkt);
 	                    System.out.println("gogo2");
-	                   System.out.println(x+" "+y);
+	                    System.out.println(x+" "+y);
 	                }
 	                reZo=reZo+zelle;
 	            }
-	            imZo=imZo+zelle;
-	        }
+	       imZo=imZo+zelle;
+	       }
 	    
-	    
-}}
+	        return PunkteListe;
+		}
+		
+}
