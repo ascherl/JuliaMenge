@@ -1,4 +1,4 @@
-import java.awt.Point;
+import java.awt.*;
 import java.util.*;
 import javax.swing.*;
 
@@ -60,10 +60,11 @@ public class JuliaView extends JFrame implements Observer {
 	    contentPane.add( btQuit);
 	    btQuit.addActionListener( controller);
 	    btDraw.addActionListener( controller);
+	    contentPane.add(new JLabel("("));
 	    contentPane.add( tfReC);
-	    contentPane.add(new JLabel(" + "));
+	    contentPane.add(new JLabel(") + ("));
 	    contentPane.add( tfImC);
-	    contentPane.add(new JLabel("i"));
+	    contentPane.add(new JLabel("i)"));
 	    
 	    return contentPane;
 	  }
@@ -76,11 +77,15 @@ public class JuliaView extends JFrame implements Observer {
 		  return Double.parseDouble(tfImC.getText()); // TODO Find better way of casting to double
 	  }
 	  
-	  void paint(ArrayList<Point> Punkteliste) {
-		  JFrame frame = new JFrame(getImC()+" + "+getImC()+"i");
-		  frame.setVisible(true);
+	  
+	public void zeichnen(ArrayList<Point> Punkteliste) {
+		  JPanel Zeichenflaeche = new Zeichnen(Punkteliste);
+		  Zeichenflaeche.setBackground(Color.white);
+		  setContentPane(Zeichenflaeche);
+		  pack();
+		  Zeichenflaeche.setVisible(true);
 	  }
-	
+
 	  public void release()
 	  {
 	// View (Fenster)
@@ -97,4 +102,26 @@ public class JuliaView extends JFrame implements Observer {
 		
 	}
 	
+
+	public class Zeichnen extends JPanel {
+		ArrayList<Point> PunkteListe = null;
+		
+		Zeichnen(ArrayList<Point> PunkteListe)
+		{
+			setPreferredSize( new Dimension( 1024, 768));
+			this.PunkteListe = PunkteListe;
+			
+		}
+		
+		@Override
+		public void paintComponent( Graphics g)
+		{
+			for(int i = 0; i < PunkteListe.size()-1; i++)
+			{
+				g.drawLine(PunkteListe.get(i).x, PunkteListe.get(i).y, PunkteListe.get(i+1).x, PunkteListe.get(i+1).y);
+			}
+		}
+	}
 }
+
+

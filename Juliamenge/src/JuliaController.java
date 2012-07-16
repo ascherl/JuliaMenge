@@ -1,3 +1,6 @@
+import java.awt.Graphics;
+import java.awt.Paint;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -30,8 +33,15 @@ public class JuliaController extends WindowAdapter implements ActionListener {
 	    
 	    if( command.equals( JuliaView.ACTION_Zeichnen))
 	    {
-	    	view.paint(model.berechnen(view.getReC(), view.getImC()));
+	    	Random r = new Random();
+	    	ArrayList<Point> PunkteDebug = new ArrayList<Point>();
+	    	for(int i = 0; i < 100; i++)
+	    	{
+	    		PunkteDebug.add(new Point(r.nextInt(1024),r.nextInt(768)));
+	    	}
+	    	view.zeichnen(PunkteDebug);
 	    }
+	
 
 	 // Programmabbruch durch Button 'Quit'
 	     if( command.equals( JuliaView.ACTION_Quit))

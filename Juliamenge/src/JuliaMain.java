@@ -8,7 +8,7 @@ public class JuliaMain {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-	    JuliaView view = new JuliaView( new JuliaModel(), "JAKOB!");
+	    JuliaView view = new JuliaView( new JuliaModel(), "Julia-Menge v0.0");
 	}
 
 }
