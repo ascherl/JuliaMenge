@@ -35,9 +35,9 @@ public class JuliaModel extends Observable{
         this.reC=reC;
         this.imC=imC;
 
-        imZo=-2.4; // oberer Rand
+        imZo=-4; // oberer Rand
         for (y=0;y<1024;y++) {
-            reZo=-3.5; // linker Rand
+            reZo=-5; // linker Rand
             for (x=0;x<768;x++) {
                 if (checkZo(reZo,imZo)==47) {
                     PunkteListe.add(new Point(x,y));
