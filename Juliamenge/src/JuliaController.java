@@ -33,13 +33,14 @@ public class JuliaController extends WindowAdapter implements ActionListener {
 	    
 	    if( command.equals( JuliaView.ACTION_Zeichnen))
 	    {
-	    	Random r = new Random();
-	    	ArrayList<Point> PunkteDebug = new ArrayList<Point>();
-	    	for(int i = 0; i < 100; i++)
-	    	{
-	    		PunkteDebug.add(new Point(r.nextInt(1024),r.nextInt(768)));
-	    	}
-	    	view.zeichnen(PunkteDebug);
+	//    	Random r = new Random();
+	//    	ArrayList<Point> PunkteDebug = new ArrayList<Point>();
+	//    	for(int i = 0; i < 100; i++)
+	//    	{
+	//    		PunkteDebug.add(new Point(r.nextInt(1024),r.nextInt(768)));
+	//    	}
+	//    	view.zeichnen(PunkteDebug);
+	    	view.zeichnen((model.berechnen(view.getReC(), view.getImC())));
 	    }
 	
 

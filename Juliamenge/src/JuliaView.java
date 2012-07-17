@@ -15,6 +15,7 @@ public class JuliaView extends JFrame implements Observer {
 	private JuliaModel model;
 	private JuliaController controller;
 	
+	
 	  public JuliaView( JuliaModel model, String titel)
 	  {
 	// Titelzeile
@@ -116,9 +117,9 @@ public class JuliaView extends JFrame implements Observer {
 		@Override
 		public void paintComponent( Graphics g)
 		{
-			for(int i = 0; i < PunkteListe.size()-1; i++)
+			for(int i = 0; i < PunkteListe.size(); i++)
 			{
-				g.drawLine(PunkteListe.get(i).x, PunkteListe.get(i).y, PunkteListe.get(i+1).x, PunkteListe.get(i+1).y);
+				g.drawLine(PunkteListe.get(i).x, PunkteListe.get(i).y, PunkteListe.get(i).x, PunkteListe.get(i).y);
 			}
 		}
 	}
